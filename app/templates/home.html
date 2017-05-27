@@ -1,15 +1,6 @@
 {% extends "base.html" %}
 {% block title %}GAS{% endblock %}
 {% block content %}
-    <h1 id="welcome" >Welcome to GAS: Analytics software for serious games!</h1>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="alert.style.display='none'">close</button>
-                    {{message}}
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+    {{ super() }}
+    <h1>Welcome to GAS: Analytics software for serious games!</h1>
 {% endblock %}

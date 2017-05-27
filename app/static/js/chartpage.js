@@ -1,9 +1,4 @@
 var chartFunc = function (json_result,title) {
-    // var value_list ={{context.value_list}}
-    // var title = "{{context.titlechart}}"
-    // var attr_list = document.getElementById("attr").innerHTML
-    // attr_list = attr_list.replace(/'/g, '"');
-    // attr_list = JSON.parse(attr_list);
 	var attr_list=[]
 	var value_list=[]
 	JSON.parse(json_result,function (k,v) {

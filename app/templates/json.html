@@ -2,48 +2,30 @@
 {% block title %}Fetchall{% endblock %}
 {% block content %}
     <div id="main" class="container">
-        <link href="../static/css/json.css" rel="stylesheet" media="screen">
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              {% for message in messages %}
-                <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">close
-                </button>
-                    {{message}}
-                </div>
-              {% endfor %}
-            {% endif %}
-        {% endwith %}
-
-        <div id="keys" style = "width:100%">
-            <div style ="height: 150px; width:100%">
+        <div id="keys">
             <ul>
-            {%  for prop in names %}
-
-                     {% if prop not in keydict %}
-                          <a href='/entries/{{prop}}'><li style = "display: inline-block; margin: 20px 20px 5px" >{{prop}}</li></a>
-                     {% endif %}
+                {%  for prop in names %}
+                    {% if prop not in keydict %}
+                        <a href='/entries/{{prop}}'><li id="json-key">{{prop}}</li></a>
+                    {% endif %}
+                {% endfor %}
             </ul>
-          {% endfor %}
-            </div>
             {% for key in keydict %}
-            <ul style="float:left; width: 300px">
-
-                    <li>{{key}}</li>
-
+            <ul>
+                <li>{{key}}</li>
                 {% set list = keydict[key] %}
-                        <ul style="display: inline-block; width: 100px;">
+                <ul >
                     {% for key2 in list %}
-                            <a href='/entries/{{key2}}'><li>{{key2}}</li></a>
+                        <a href='/entries/{{key2}}'><li>{{key2}}</li></a>
                     {% endfor %}
-                        </ul>
+                </ul>
             </ul>
             {% endfor %}
-
         </div>
-        <div id="fetch" style = "margin: 30px 30px 10px">
-              <pre id = "show" style="margin: 30px 30px 30px 30px; height: 700px;float:left"><code style=" margin-left:20px; margin-right:20px">
-          {% print(json) %}</code></pre>
+        <div id="fetch">
+            <pre id = "show">
+                <code>{% print(json) %}</code>
+            </pre>
         </div>
     </div>
 {% endblock %}

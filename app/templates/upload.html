@@ -1,25 +1,12 @@
-{% extends "home.html" %}
+{% extends "base.html" %}
 {% block title %}Upload{% endblock %}
 {% block content %}
-<div class="uploader">
-    <p id="welcome_message">Upload a LOG/JSON-file</p>
-    <form action="" method=post enctype=multipart/form-data>
+    {{ super() }}
     <div>
-        <input class = "upload_button"  type=file name=file>
+        <h3>Upload a LOG/JSON-file</h3>
+        <form action="" method=post enctype=multipart/form-data>
+            <input type=file name=file>
+            <input type=submit value=Upload>
+        </form>
     </div>
-    <div style = margin:2px>
-        <input class="upload_button" type=submit value=Upload onclick=loading();>
-    </div>
-
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          {% for message in messages %}
-            <div class="alert alert-success alert-dismissible" role="alert">
-                {{message}}
-            </div>
-          {% endfor %}
-        {% endif %}
-    {% endwith %}
-    </form>
-</div>
 {% endblock %}
