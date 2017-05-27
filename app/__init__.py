@@ -228,8 +228,11 @@ def get_entry(json_id):
                             id_results[value] += 1
                         else:
                             id_results[value] = 1
-
-    return toJson(id_results)
+    jsonResult = toJson(id_results)
+    context={}
+    context["title"] = json_id
+    context["json_result"] = jsonResult
+    return render_template('chartpage.html', context=context)
 
 
 @app.route('/chartpage')

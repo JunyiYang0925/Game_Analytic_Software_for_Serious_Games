@@ -31,7 +31,6 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="upload">Upload JSON</a></li>
                 <li><a href="fetch">Fetch all</a></li>
-                <li><a href="chartpage">Chartpage</a></li>
                 <li class="Johtamispeli"><a href="https://jope.sis.uta.fi/login.html">Johtamispeli</a></li>
             </ul>
 
@@ -43,24 +42,13 @@
 </nav>
 
 <div class="maincontainer">
-	<div id="subcontainer1"></div>
-	<div id="subcontainer2"></div>
-    <div id="subcontainer3"></div>
-    <div id="subcontainer4"></div>
-
+    <canvas id="myChart" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></canvas>
+    <p>{{ context.json_result }}</p>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-			  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-			  crossorigin="anonymous"></script>
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 <script src="../static/js/chartpage.js"></script>
+<script type="text/javascript">chart = chartFunc({{context.json_result|tojson}},{{ context.title|tojson }})</script>
 
 </body>
 
